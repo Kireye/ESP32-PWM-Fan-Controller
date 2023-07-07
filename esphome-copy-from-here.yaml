@@ -1,0 +1,55 @@
+esphome:
+  name: name-here
+  friendly_name: friendly-
+
+esp32:
+  board: esp32-c3-devkitm-1
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "encryption-key"
+
+ota:
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "ssid"
+
+# Fan output
+output:
+  - id: fanout
+    platform: ledc
+    pin: GPIO10
+    frequency: 25000Hz
+
+# Fan configuration
+fan:
+  - platform: speed
+    output: fanout
+    name: "fan-name-here"
+
+# Tachometer pulse
+
+sensor:
+  - platform: pulse_counter
+    pin:
+      number: GPIO20
+      mode: INPUT_PULLUP
+    name: "Fan RPM"
+    unit_of_measurement: "RPM"
+    update_interval: 1s # Makes the RPM update every seccond. Will default to once every minute if removed
+    filters:
+      - multiply: 0.5  # (2 pulses per revolution) This is nessicary as the tachometer sends 2 pulses every rotation, so if we don't half that value the RPM will be dubble of what the fan is acctualy rotating at
+
+captive_portal:
+    
