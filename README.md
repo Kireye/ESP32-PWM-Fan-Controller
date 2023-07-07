@@ -20,7 +20,7 @@ The easiest way of continuing is to simply copy the layout of the .yaml file tha
 IMPORTANT: DO NOT COPY THE ENTIRE FILE. ONLY "#FAN OUTPUT" AND BELLOW SHOULD BE COPIED AS OTHERWISE YOUR FILE WILL NOT FUNCTION
 
 Also change "name:" under "# Fan configuration" to the name you want your fan to have. Also change "name:" under "# Tachometer pulse" to the name you want your RPM meter to have.
-Now click "save" in the top right, and "install", also in the top right, and then the top option "Wirelessly" and wait for your .yaml fille to be uploaded to your ESP32 board.
+Now click "save" in the top right, and "install", also in the top right, and then the top option "Wirelessly" and wait for your .yaml fille to be uploaded to your ESP32 board. The instal is complete when the pulse counter starts outputting blue text to the log window.
 
 You should now find two devices in the Home Assistan dashboard. One a fan and one a pulse meter both with the respective names that you entered in the .yaml file.
 
